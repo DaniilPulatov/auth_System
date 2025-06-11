@@ -58,5 +58,5 @@ curl -X POST http://localhost:8080/api/auth/login \
 }'
 
 
-## PLANS FOR FURTHER DEVELOPMENT
-- Add user verification via email
+## 🚧 PLANS FOR FURTHER DEVELOPMENT
+- 📌 Add user verification via email
