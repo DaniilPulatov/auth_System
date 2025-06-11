@@ -7,6 +7,7 @@ import (
 	internalErr "auth-service/internal/errors"
 	"auth-service/internal/hashing"
 	"auth-service/internal/tokenOps"
+	"auth-service/pkg/utils"
 	"context"
 	"errors"
 	"github.com/google/uuid"
@@ -19,6 +20,9 @@ const (
 )
 
 func (s service) Register(ctx context.Context, input *user.Input) error {
+	if !utils.IsValidEmail(input.Email) {
+		return errors.New("invalid email")
+	}
 	oldUser, err := s.userRepo.GetByEmail(ctx, input.Email)
 	if err != nil {
 
@@ -44,6 +48,9 @@ func (s service) Register(ctx context.Context, input *user.Input) error {
 }
 
 func (s service) Login(ctx context.Context, input *user.Input) (map[string]string, error) {
+	if !utils.IsValidEmail(input.Email) {
+		return nil, errors.New("invalid email")
+	}
 	tokens := make(map[string]string)
 
 	existingUser, err := s.userRepo.GetByEmail(ctx, input.Email) // check if user with provided email exists

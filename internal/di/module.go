@@ -89,7 +89,7 @@ func NewModule() fx.Option {
 
 			fx.Annotate(
 				users.NewUserRepo,
-				fx.As(new(users.UsersRepository)),
+				fx.As(new(users.UserRepository)),
 			),
 			fx.Annotate(
 				tokens.NewPostgresAuthRepo,
