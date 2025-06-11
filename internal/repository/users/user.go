@@ -71,3 +71,16 @@ func (r repo) IsAdmin(ctx context.Context, userID string) error {
 	}
 	return nil
 }
+
+/*
+func (r repo) SetVerified(ctx context.Context, userID string) error {
+	updateQuery := `UPDATE users SET verified = TRUE WHERE id = $1;`
+	if _, err := r.pool.Exec(ctx, updateQuery, userID); err != nil {
+		log.Println("users repo at SetVerified():", err)
+		return err
+	}
+	log.Println("user verified field set TRUE")
+	return nil
+}
+
+*/

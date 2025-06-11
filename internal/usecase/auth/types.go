@@ -23,14 +23,14 @@ type TokenProvider interface {
 }
 
 type service struct {
-	userRepo      users.UsersRepository
+	userRepo      users.UserRepository
 	tokenRepo     tokens.AuthenticationRepo
 	pinRepo       authpin.PinRepository
 	tokenProvider TokenProvider
 	//adminChecker AdminChecker
 }
 
-func NewAuthService(usrRepo users.UsersRepository,
+func NewAuthService(usrRepo users.UserRepository,
 	tokenRepo tokens.AuthenticationRepo, pinRepo authpin.PinRepository,
 	tokenProvider TokenProvider) AuthenticationService {
 	return service{
