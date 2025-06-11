@@ -56,3 +56,7 @@ curl -X POST http://localhost:8080/api/auth/login \
 "email": "sdf@example.com",
 "password": "sdf"
 }'
+
+
+## PLANS FOR FURTHER DEVELOPMENT
+-- Add user verification via email
